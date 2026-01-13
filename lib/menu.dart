@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
+import 'package:kelompok/Uranus.dart';
+
 void main() {
   runApp(const SolarSystemApp());
 }
@@ -164,14 +166,12 @@ class _MenuPageState extends State<MenuPage> with TickerProviderStateMixin {
                 // =====================================
                 // PINDAH PAGE (AKTIFKAN NANTI)
                 // =====================================
-                /*
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (_) => PlanetPage(menu: menu),
-                  ),
-                );
-                */
+                if (menu == "Uranus & Neptune") {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (_) => UranusPage()),
+                  );
+                }
               },
             );
           }).toList(),
@@ -218,14 +218,11 @@ class _MenuPageState extends State<MenuPage> with TickerProviderStateMixin {
                 // =====================================
                 // PINDAH PAGE (AKTIFKAN NANTI)
                 // =====================================
-                /*
+
                 Navigator.push(
                   context,
-                  MaterialPageRoute(
-                    builder: (_) => PlanetPage(menu: menu),
-                  ),
+                  MaterialPageRoute(builder: (_) => UranusPage()),
                 );
-                */
               },
             );
           }).toList(),
