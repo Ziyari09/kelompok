@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
 import 'package:kelompok/Uranus.dart';
+import 'planetbumidanmars.dart';
 
 void main() {
   runApp(const SolarSystemApp());
@@ -39,7 +40,7 @@ class _MenuPageState extends State<MenuPage> with TickerProviderStateMixin {
   final List<String> mainMenu = [
     "Solar System",
     "Mercury & Venus",
-    "Earth & Mars",
+    "Bumi & Mars",
     "Jupiter & Saturn",
     "Uranus & Neptune",
   ];
@@ -91,7 +92,7 @@ class _MenuPageState extends State<MenuPage> with TickerProviderStateMixin {
             backgroundColor: Colors.black,
             appBar: AppBar(
               backgroundColor: Colors.black,
-              title: Text(selectedMenu),
+              title: const Text("Solar System"), // FIXED: Hardcoded title
             ),
             drawer: _drawerMenu(),
             body: _content(),
@@ -113,7 +114,7 @@ class _MenuPageState extends State<MenuPage> with TickerProviderStateMixin {
                 });
               },
             ),
-            title: Text(selectedMenu),
+            title: const Text("Solar System"), // FIXED: Hardcoded title
           ),
           body: Row(
             children: [
@@ -159,19 +160,26 @@ class _MenuPageState extends State<MenuPage> with TickerProviderStateMixin {
                 ),
               ),
               onTap: () {
-                setState(() {
-                  selectedMenu = menu;
-                });
+                // FIXED: Jangan ubah selectedMenu untuk navigasi
+                // setState(() {
+                //   selectedMenu = menu;
+                // });
 
                 // =====================================
-                // PINDAH PAGE (AKTIFKAN NANTI)
+                // PINDAH PAGE
                 // =====================================
                 if (menu == "Uranus & Neptune") {
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (_) => UranusPage()),
                   );
+                } else if (menu == "Bumi & Mars") {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (_) => EncyclopediaHome()),
+                  );
                 }
+                // Tambahkan navigasi untuk menu lain jika diperlukan
               },
             );
           }).toList(),
@@ -210,19 +218,27 @@ class _MenuPageState extends State<MenuPage> with TickerProviderStateMixin {
                 ),
               ),
               onTap: () {
-                setState(() {
-                  selectedMenu = menu;
-                });
+                // FIXED: Jangan ubah selectedMenu untuk navigasi
+                // setState(() {
+                //   selectedMenu = menu;
+                // });
                 Navigator.pop(context);
 
                 // =====================================
-                // PINDAH PAGE (AKTIFKAN NANTI)
+                // PINDAH PAGE
                 // =====================================
-
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (_) => UranusPage()),
-                );
+                if (menu == "Uranus & Neptune") {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (_) => UranusPage()),
+                  );
+                } else if (menu == "Bumi & Mars") {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (_) => EncyclopediaHome()),
+                  );
+                }
+                // Tambahkan navigasi untuk menu lain jika diperlukan
               },
             );
           }).toList(),
