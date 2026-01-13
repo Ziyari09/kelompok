@@ -3,6 +3,7 @@ import 'dart:math' as math;
 
 import 'package:kelompok/Uranus.dart';
 import 'planetbumidanmars.dart';
+import 'jupiter_saturnus.dart';
 
 void main() {
   runApp(const SolarSystemApp());
@@ -41,7 +42,7 @@ class _MenuPageState extends State<MenuPage> with TickerProviderStateMixin {
     "Solar System",
     "Mercury & Venus",
     "Bumi & Mars",
-    "Jupiter & Saturn",
+    "Jupiter & Saturnus",
     "Uranus & Neptune",
   ];
 
@@ -173,10 +174,17 @@ class _MenuPageState extends State<MenuPage> with TickerProviderStateMixin {
                     context,
                     MaterialPageRoute(builder: (_) => UranusPage()),
                   );
-                } else if (menu == "Bumi & Mars") {
+                }
+                if (menu == "Bumi & Mars") {
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (_) => EncyclopediaHome()),
+                  );
+                }
+                if (menu == "Jupiter & Saturnus") {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (_) => PlanetExplorerHome()),
                   );
                 }
                 // Tambahkan navigasi untuk menu lain jika diperlukan
@@ -236,6 +244,11 @@ class _MenuPageState extends State<MenuPage> with TickerProviderStateMixin {
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (_) => EncyclopediaHome()),
+                  );
+                } else if (menu == "Jupiter & Saturnus") {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (_) => PlanetExplorerHome()),
                   );
                 }
                 // Tambahkan navigasi untuk menu lain jika diperlukan
